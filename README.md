@@ -1,15 +1,15 @@
-Modelagem de Banco de Dados para um Sistema Acadêmico Universitário
+# Modelagem de Banco de Dados para um Sistema Acadêmico Universitário
 
-📝 Introdução
+## 📝 Introdução
 
 Este projeto consiste na modelagem de um banco de dados relacional para gerenciar informações de uma universidade, abrangendo professores, projetos de pesquisa, alunos de pós-graduação e departamentos. O objetivo principal é demonstrar as habilidades em design de bancos de dados, utilizando os princípios da modelagem Entidade-Relacionamento (ERD) e a linguagem SQL para a criação das estruturas e inserção de dados.
 
 O foco é construir um esquema de banco de dados que seja eficiente, normalizado e capaz de representar as complexas relações existentes em um ambiente universitário, como a colaboração de professores e alunos em múltiplos projetos, a hierarquia de chefia de departamento, e a supervisão de alunos em projetos específicos.
 
-🚀 Desenvolvimento
+## 🚀 Desenvolvimento
 
 Esta seção detalha o processo de criação do banco de dados, desde a análise dos requisitos até a implementação das tabelas e a inserção de dados.
-1. Análise de Requisitos
+### 1. Análise de Requisitos
 
 Os requisitos iniciais e as iterações de complexidade crescente foram cuidadosamente analisados para identificar as entidades, seus atributos e os relacionamentos entre elas. Os requisitos foram:
 
@@ -25,7 +25,7 @@ Os requisitos iniciais e as iterações de complexidade crescente foram cuidados
     Relação Aluno-Departamento: Alunos de pós-graduação têm um departamento principal.
     Relação Aluno-Aluno (Conselheiro): Cada estudante tem um outro estudante mais experiente como conselheiro.
 
-2. Modelagem Entidade-Relacionamento (ERD)
+### 2. Modelagem Entidade-Relacionamento (ERD)
 
 Com base nos requisitos, foi construído um diagrama Entidade-Relacionamento (ERD) utilizando o MySQL Workbench. Este diagrama representa as entidades, seus atributos e os tipos de relacionamentos (1:1, 1:N, N:M), incluindo a identificação de chaves primárias e estrangeiras.
 
