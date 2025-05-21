@@ -31,7 +31,7 @@ Com base nos requisitos, foi construído um diagrama Entidade-Relacionamento (ER
 
 O diagrama final, após várias iterações e refinamentos para acomodar todos os requisitos, é apresentado a seguir:
 
-[IMAGEM DO SEU ERD FINAL AQUI - image_7911e1.png]
+modelagem_universidade.png
 (Certifique-se de que a imagem esteja no repositório e o link seja correto)
 
     Entidades:
