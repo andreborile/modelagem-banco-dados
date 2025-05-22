@@ -1,5 +1,8 @@
 # Modelagem de Banco de Dados para um Sistema Acadêmico Universitário
 
+## Enunciado 
+![Enunciado do erxerício](https://github.com/andreborile/modelagem-banco-dados/blob/main/src/exercicio_modelagem.pdf)
+
 ## 📝 Introdução
 
 Este projeto consiste na modelagem de um banco de dados relacional para gerenciar informações de uma universidade, abrangendo professores, projetos de pesquisa, alunos de pós-graduação e departamentos. O objetivo principal é demonstrar as habilidades em design de bancos de dados, utilizando os princípios da modelagem Entidade-Relacionamento (ERD) e a linguagem SQL para a criação das estruturas e inserção de dados.
