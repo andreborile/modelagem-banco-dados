@@ -31,7 +31,7 @@ Com base nos requisitos, foi construído um diagrama Entidade-Relacionamento (ER
 
 O diagrama final, após várias iterações e refinamentos para acomodar todos os requisitos, é apresentado a seguir:
 
-![modelagem_universidade.png](https://github.com/andreborile/modelagem-banco-dados/blob/main/modelagem_universidade.png)
+![modelagem_universidade.png](https://github.com/andreborile/modelagem-banco-dados/blob/main/src/modelagem_universidade.png)
 
     Entidades:
         professor
@@ -44,3 +44,67 @@ O diagrama final, após várias iterações e refinamentos para acomodar todos o
         departamento_has_profess (para alocação de tempo de professores em departamentos)
     Auto-Relacionamento:
         aluno.conselheiro (para o conselheiro de cada aluno)
+        
+## 3. Implementação do Esquema (DDL)
+
+A partir do ERD, o script SQL para a criação das tabelas (Data Definition Language - DDL) foi gerado. Este script inclui a definição das colunas, tipos de dados, chaves primárias e chaves estrangeiras, garantindo a integridade referencial do banco de dados.
+
+[Link para o arquivo DDL no seu repositório, ex: src/schema.sql ou ddl/schema.sql]
+
+## 4. Inserção de Dados (DML)
+
+Para popular o banco de dados e permitir testes, foram criados 5 registros para cada tabela, incluindo as tabelas de junção. Isso demonstra a capacidade de manipular os dados de acordo com o esquema definido.
+
+[Link para o arquivo DML no seu repositório, ex: src/data.sql ou dml/data.sql]
+
+## 5. Demonstração de Queries SQL
+
+Para demonstrar a funcionalidade e a capacidade de extração de informações do banco de dados modelado, foram elaboradas algumas queries SQL. Estas consultas exemplificam como é possível interrogar o banco de dados para obter insights complexos e relevantes sobre as operações da universidade.
+Exemplo de Query: Departamentos Ativos e Seus Recursos Humanos (Professores e Alunos)
+
+    Objetivo: Esta query visa fornecer uma visão holística dos departamentos da universidade, listando o nome de cada departamento, seu escritório principal, o nome do professor que atua como chefe do departamento, e a contagem total de professores que trabalham naquele departamento (independentemente da porcentagem de tempo), bem como o número de alunos de pós-graduação que o têm como seu departamento principal.
+
+    Demonstração: Esta consulta agrega dados de diferentes entidades (departamento, professor, departamento_has_profess, aluno) para apresentar um resumo consolidado dos recursos humanos associados a cada departamento, destacando a eficiência da modelagem para consultas complexas.
+
+Query
+
+    SELECT
+        d.nome AS NomeDepartamento,
+        d.escritorio AS EscritorioPrincipal,
+        pc.nome AS ChefeDepartamento,
+        COUNT(DISTINCT dhp.professor_idprofessor) AS TotalProfessoresTrabalhando,
+        COUNT(DISTINCT a.idaluno) AS TotalAlunosAssociados
+    FROM
+        departamento AS d
+    LEFT JOIN
+        professor AS pc ON d.prof_chefe_dpto = pc.idprofessor
+    LEFT JOIN
+        departamento_has_professor AS dhp ON d.iddepartamento = dhp.departamento_iddepartamento
+    LEFT JOIN
+        aluno AS a ON d.iddepartamento = a.departamento_iddepartamento
+    GROUP BY
+        d.iddepartamento, d.nome, d.escritorio, pc.nome
+    ORDER BY
+        TotalAlunosAssociados DESC, TotalProfessoresTrabalhando DESC;
+
+LINK
+
+## ✅ Resultado
+
+O resultado deste trabalho é um modelo de banco de dados relacional completo e funcional, aderente aos requisitos complexos de um sistema universitário. O ERD demonstra uma compreensão sólida da modelagem de dados, incluindo a correta aplicação de normalização e o uso de tabelas de junção para relações N:M, bem como auto-relacionamentos.
+
+A implementação em SQL (DDL e DML) prova a capacidade de transpor o modelo conceitual e lógico para um esquema físico de banco de dados e popular este esquema com dados de exemplo, confirmando a integridade e a capacidade de armazenamento das informações.
+
+Este projeto serve como uma base robusta para o desenvolvimento futuro de aplicações que necessitem gerenciar dados universitários, garantindo a consistência e a organização das informações.
+## 💡 Conclusão
+
+A realização deste projeto reforçou a importância da fase de modelagem no ciclo de vida do desenvolvimento de sistemas. A análise cuidadosa dos requisitos e a construção iterativa do ERD foram cruciais para a criação de um esquema de banco de dados eficiente e sem redundâncias. A capacidade de representar relações complexas, como múltiplos papéis para uma mesma entidade (ex: professor como chefe, pesquisador principal e copesquisador) e atributos de relacionamento (ex: porcentagem de tempo e supervisor por projeto-aluno), é fundamental para a flexibilidade e escalabilidade do sistema.
+
+### Este trabalho demonstra proficiência em:
+
+    Análise de requisitos para modelagem de dados.
+    Criação de Diagramas Entidade-Relacionamento (ERD) no MySQL Workbench.
+    Compreensão e aplicação de conceitos de normalização.
+    Geração de scripts DDL para criação de tabelas e definição de chaves.
+    Elaboração de scripts DML para inserção de dados.
+    Desenvolvimento e aplicação de consultas SQL complexas para extração e análise de dados estratégicos.
