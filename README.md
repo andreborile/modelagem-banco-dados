@@ -47,7 +47,7 @@ O diagrama final, após várias iterações e refinamentos para acomodar todos o
     Tabelas de Junção (para relações N:M e atributos de relacionamento):
         professor_has_projeto (para copesquisadores)
         projeto_has_aluno (para assistentes de pesquisa e seus supervisores específicos por projeto)
-        departamento_has_profess (para alocação de tempo de professores em departamentos)
+        departamento_has_professor (para alocação de tempo de professores em departamentos)
     Auto-Relacionamento:
         aluno.conselheiro (para o conselheiro de cada aluno)
         
@@ -70,7 +70,7 @@ Exemplo de Query: Departamentos Ativos e Seus Recursos Humanos (Professores e Al
 
     Objetivo: Esta query visa fornecer uma visão holística dos departamentos da universidade, listando o nome de cada departamento, seu escritório principal, o nome do professor que atua como chefe do departamento, e a contagem total de professores que trabalham naquele departamento (independentemente da porcentagem de tempo), bem como o número de alunos de pós-graduação que o têm como seu departamento principal.
 
-    Demonstração: Esta consulta agrega dados de diferentes entidades (departamento, professor, departamento_has_profess, aluno) para apresentar um resumo consolidado dos recursos humanos associados a cada departamento, destacando a eficiência da modelagem para consultas complexas.
+    Demonstração: Esta consulta agrega dados de diferentes entidades (departamento, professor, departamento_has_professor, aluno) para apresentar um resumo consolidado dos recursos humanos associados a cada departamento, destacando a eficiência da modelagem para consultas complexas.
 
 ![Query Select](https://github.com/andreborile/modelagem-banco-dados/blob/main/src/select.sql)
 
