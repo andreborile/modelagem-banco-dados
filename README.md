@@ -1,7 +1,7 @@
 # Modelagem de Banco de Dados para um Sistema Acadêmico Universitário
 
 ## Enunciado 
-Neste link consta o enunciado do exercício proposto. O link foi retirado da internet.
+Este projeto foi desenvolvido com base no seguinte enunciado de modelagem de banco de dados, encontrado como um exercício prático online.
 
 ![Enunciado do erxerício](https://github.com/andreborile/modelagem-banco-dados/blob/main/src/exercicio_modelagem.pdf)
 
