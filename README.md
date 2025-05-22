@@ -2,6 +2,7 @@
 
 ## Enunciado 
 Neste link consta o enunciado do exercício proposto. O link foi retirado da internet.
+
 ![Enunciado do erxerício](https://github.com/andreborile/modelagem-banco-dados/blob/main/src/exercicio_modelagem.pdf)
 
 ## 📝 Introdução
