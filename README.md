@@ -9,6 +9,7 @@ O foco é construir um esquema de banco de dados que seja eficiente, normalizado
 ## 🚀 Desenvolvimento
 
 Esta seção detalha o processo de criação do banco de dados, desde a análise dos requisitos até a implementação das tabelas e a inserção de dados.
+
 ### 1. Análise de Requisitos
 
 Os requisitos iniciais e as iterações de complexidade crescente foram cuidadosamente analisados para identificar as entidades, seus atributos e os relacionamentos entre elas. Os requisitos foram:
@@ -49,13 +50,13 @@ O diagrama final, após várias iterações e refinamentos para acomodar todos o
 
 A partir do ERD, o script SQL para a criação das tabelas (Data Definition Language - DDL) foi gerado. Este script inclui a definição das colunas, tipos de dados, chaves primárias e chaves estrangeiras, garantindo a integridade referencial do banco de dados.
 
-[Link para o arquivo DDL no seu repositório, ex: src/schema.sql ou ddl/schema.sql]
+![Arquivo DDL](https://github.com/andreborile/modelagem-banco-dados/blob/main/src/ddl.sql)
 
 ## 4. Inserção de Dados (DML)
 
 Para popular o banco de dados e permitir testes, foram criados 5 registros para cada tabela, incluindo as tabelas de junção. Isso demonstra a capacidade de manipular os dados de acordo com o esquema definido.
 
-[Link para o arquivo DML no seu repositório, ex: src/data.sql ou dml/data.sql]
+![Arquivo DML](https://github.com/andreborile/modelagem-banco-dados/blob/main/src/dml.sql)
 
 ## 5. Demonstração de Queries SQL
 
@@ -66,28 +67,9 @@ Exemplo de Query: Departamentos Ativos e Seus Recursos Humanos (Professores e Al
 
     Demonstração: Esta consulta agrega dados de diferentes entidades (departamento, professor, departamento_has_profess, aluno) para apresentar um resumo consolidado dos recursos humanos associados a cada departamento, destacando a eficiência da modelagem para consultas complexas.
 
-Query
+![Query Select](https://github.com/andreborile/modelagem-banco-dados/blob/main/src/select.sql)
 
-    SELECT
-        d.nome AS NomeDepartamento,
-        d.escritorio AS EscritorioPrincipal,
-        pc.nome AS ChefeDepartamento,
-        COUNT(DISTINCT dhp.professor_idprofessor) AS TotalProfessoresTrabalhando,
-        COUNT(DISTINCT a.idaluno) AS TotalAlunosAssociados
-    FROM
-        departamento AS d
-    LEFT JOIN
-        professor AS pc ON d.prof_chefe_dpto = pc.idprofessor
-    LEFT JOIN
-        departamento_has_professor AS dhp ON d.iddepartamento = dhp.departamento_iddepartamento
-    LEFT JOIN
-        aluno AS a ON d.iddepartamento = a.departamento_iddepartamento
-    GROUP BY
-        d.iddepartamento, d.nome, d.escritorio, pc.nome
-    ORDER BY
-        TotalAlunosAssociados DESC, TotalProfessoresTrabalhando DESC;
-
-LINK
+![Resultado Select](https://github.com/andreborile/modelagem-banco-dados/blob/main/img/select.png)
 
 ## ✅ Resultado
 
@@ -96,11 +78,12 @@ O resultado deste trabalho é um modelo de banco de dados relacional completo e 
 A implementação em SQL (DDL e DML) prova a capacidade de transpor o modelo conceitual e lógico para um esquema físico de banco de dados e popular este esquema com dados de exemplo, confirmando a integridade e a capacidade de armazenamento das informações.
 
 Este projeto serve como uma base robusta para o desenvolvimento futuro de aplicações que necessitem gerenciar dados universitários, garantindo a consistência e a organização das informações.
+
 ## 💡 Conclusão
 
 A realização deste projeto reforçou a importância da fase de modelagem no ciclo de vida do desenvolvimento de sistemas. A análise cuidadosa dos requisitos e a construção iterativa do ERD foram cruciais para a criação de um esquema de banco de dados eficiente e sem redundâncias. A capacidade de representar relações complexas, como múltiplos papéis para uma mesma entidade (ex: professor como chefe, pesquisador principal e copesquisador) e atributos de relacionamento (ex: porcentagem de tempo e supervisor por projeto-aluno), é fundamental para a flexibilidade e escalabilidade do sistema.
 
-### Este trabalho demonstra proficiência em:
+### Este projeto demonstra proficiência em:
 
     Análise de requisitos para modelagem de dados.
     Criação de Diagramas Entidade-Relacionamento (ERD) no MySQL Workbench.
